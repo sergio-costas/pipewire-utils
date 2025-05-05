@@ -1,0 +1,128 @@
+name: pipewire-utils
+base: core24
+adopt-info: pipewire-utils
+summary: Snapped pipewire and pulseaudio utils
+description: |
+  The pipewire and pulseaudio utils, like paplay, pw-top...
+
+grade: stable
+confinement: strict
+
+environment:
+  SPA_PLUGIN_DIR: $SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/spa-0.2
+  LD_LIBRARY_PATH: ${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}/usr/lib:/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:$SNAP/usr/lib:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/pipewire-0.3:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/pulseaudio
+
+apps:
+  pw-play:
+    command: usr/bin/pw-play
+    plugs: &pwtoolsslots
+      - pipewire
+      - audio-playback
+
+  pw-cat:
+    command: usr/bin/pw-cat
+    plugs: *pwtoolsslots
+
+  pw-cli:
+    command: usr/bin/pw-cli
+    plugs: *pwtoolsslots
+
+  pw-config:
+    command: usr/bin/pw-config
+    plugs: *pwtoolsslots
+
+  pw-dot:
+    command: usr/bin/pw-dot
+    plugs: *pwtoolsslots
+
+  pw-dsdplay:
+    command: usr/bin/pw-dsdplay
+    plugs: *pwtoolsslots
+
+  pw-dump:
+    command: usr/bin/pw-dump
+    plugs: *pwtoolsslots
+
+  pw-encplay:
+    command: usr/bin/pw-encplay
+    plugs: *pwtoolsslots
+
+  pw-link:
+    command: usr/bin/pw-link
+    plugs: *pwtoolsslots
+
+  pw-loopback:
+    command: usr/bin/pw-loopback
+    plugs: *pwtoolsslots
+
+  pw-metadata:
+    command: usr/bin/pw-metadata
+    plugs: *pwtoolsslots
+
+  pw-mididump:
+    command: usr/bin/pw-mididump
+    plugs: *pwtoolsslots
+
+  pw-midiplay:
+    command: usr/bin/pw-midiplay
+    plugs: *pwtoolsslots
+
+  pw-midirecord:
+    command: usr/bin/pw-midirecord
+    plugs: *pwtoolsslots
+
+  pw-mon:
+    command: usr/bin/pw-mon
+    plugs: *pwtoolsslots
+
+  pw-profiler:
+    command: usr/bin/pw-profiler
+    plugs: *pwtoolsslots
+
+  pw-record:
+    command: usr/bin/pw-record
+    plugs: *pwtoolsslots
+
+  pw-top:
+    command: usr/bin/pw-top
+    plugs: *pwtoolsslots
+
+  pa-info:
+    command: usr/bin/pa-info
+    plugs: *pwtoolsslots
+
+  pacat:
+    command: usr/bin/pacat
+    plugs: *pwtoolsslots
+
+  pactl:
+    command: usr/bin/pactl
+    plugs: *pwtoolsslots
+
+  pacmd:
+    command: usr/bin/pacmd
+    plugs: *pwtoolsslots
+
+  pamon:
+    command: usr/bin/pamon
+    plugs: *pwtoolsslots
+
+  paplay:
+    command: usr/bin/paplay
+    plugs: *pwtoolsslots
+
+  parecord:
+    command: usr/bin/parecord
+    plugs: *pwtoolsslots
+
+  parec:
+    command: usr/bin/parec
+    plugs: *pwtoolsslots
+
+parts:
+  pipewire-utils:
+    plugin: nil
+    stage-packages:
+      - pulseaudio-utils
+      - pipewire-bin
+      - alsa-utils
