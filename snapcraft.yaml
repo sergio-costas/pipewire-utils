@@ -24,109 +24,113 @@ layout:
 apps:
   pw-play:
     command: usr/bin/pw-play
-    plugs: &pwtoolsslots
+    plugs: &pwtoolsplugs
       - pipewire
       - audio-playback
+      - audio-record
 
   pw-cat:
     command: usr/bin/pw-cat
-    plugs: *pwtoolsslots
+    plugs: *pwtoolsplugs
 
   pw-cli:
     command: usr/bin/pw-cli
-    plugs: *pwtoolsslots
+    plugs: *pwtoolsplugs
 
   pw-config:
     command: usr/bin/pw-config
-    plugs: *pwtoolsslots
+    plugs: *pwtoolsplugs
 
   pw-dot:
     command: usr/bin/pw-dot
-    plugs: *pwtoolsslots
+    plugs: *pwtoolsplugs
 
   pw-dsdplay:
     command: usr/bin/pw-dsdplay
-    plugs: *pwtoolsslots
+    plugs: *pwtoolsplugs
 
   pw-dump:
     command: usr/bin/pw-dump
-    plugs: *pwtoolsslots
+    plugs: *pwtoolsplugs
 
   pw-encplay:
     command: usr/bin/pw-encplay
-    plugs: *pwtoolsslots
+    plugs: *pwtoolsplugs
 
   pw-link:
     command: usr/bin/pw-link
-    plugs: *pwtoolsslots
+    plugs: *pwtoolsplugs
 
   pw-loopback:
     command: usr/bin/pw-loopback
-    plugs: *pwtoolsslots
+    plugs: *pwtoolsplugs
 
   pw-metadata:
     command: usr/bin/pw-metadata
-    plugs: *pwtoolsslots
+    plugs: *pwtoolsplugs
 
   pw-mididump:
     command: usr/bin/pw-mididump
-    plugs: *pwtoolsslots
+    plugs: *pwtoolsplugs
 
   pw-midiplay:
     command: usr/bin/pw-midiplay
-    plugs: *pwtoolsslots
+    plugs: *pwtoolsplugs
 
   pw-midirecord:
     command: usr/bin/pw-midirecord
-    plugs: *pwtoolsslots
+    plugs: *pwtoolsplugs
 
   pw-mon:
     command: usr/bin/pw-mon
-    plugs: *pwtoolsslots
+    plugs: *pwtoolsplugs
 
   pw-profiler:
     command: usr/bin/pw-profiler
-    plugs: *pwtoolsslots
+    plugs: *pwtoolsplugs
 
   pw-record:
     command: usr/bin/pw-record
-    plugs: *pwtoolsslots
+    plugs: *pwtoolsplugs
 
   pw-top:
     command: usr/bin/pw-top
-    plugs: *pwtoolsslots
+    plugs: *pwtoolsplugs
 
   pa-info:
     command: usr/bin/pa-info
-    plugs: *pwtoolsslots
+    plugs: &patoolsplugs
+      - pulseaudio
+      - audio-playback
+      - audio-record
 
   pacat:
     command: usr/bin/pacat
-    plugs: *pwtoolsslots
+    plugs: *patoolsplugs
 
   pactl:
     command: usr/bin/pactl
-    plugs: *pwtoolsslots
+    plugs: *patoolsplugs
 
   pacmd:
     command: usr/bin/pacmd
-    plugs: *pwtoolsslots
+    plugs: *patoolsplugs
 
   pamon:
     command: usr/bin/pamon
-    plugs: *pwtoolsslots
+    plugs: *patoolsplugs
 
   paplay:
     command: usr/bin/paplay
-    plugs: *pwtoolsslots
+    plugs: *patoolsplugs
 
   parecord:
     command: usr/bin/parecord
-    plugs: *pwtoolsslots
+    plugs: *patoolsplugs
 
   parec:
     command: usr/bin/parec
-    plugs: *pwtoolsslots
+    plugs: *patoolsplugs
 
 parts:
   pipewire-utils:
